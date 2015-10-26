@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='MicroTube'>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.2.16/angular-resource.min.js"></script>
+	<script src="MicroTube.js"></script>
+	<title>MicroTube</title>
+</head>
+<body>
+
+	<div class="page-header"><h1 class="text-center">MicroTube <small>by William Marques</small></h1></div>
+
+	<div  class="container-fluid" ng-controller="MicroTubeCtrl">
+		<div class="row-fludid">
+			<div class="col-md-3 well sidebar">
+				<form class="form-inline"><input type="text" ng-model="search" class="form-control" placeholder="Search for a video">
+				<button class="btn btn-default" ng-click="doSearch()">Search</button></form>
+				<table class="table table-striped">
+					<tr ng-repeat="result in results.items" ng-click="updateVideo(result.id.videoId)">
+						<td><img ng-src="{{result.snippet.thumbnails.default.url}}"/></td>
+						<td>{{result.snippet.title}}</td>
+					</tr>
+				</table>
+
+				<p>
+					<button class="btn btn-default" ng-click="changePage(results.prevPageToken)">Prev</button>
+					<button class="btn btn-default" ng-click="changePage(results.nextPageToken)">Next</button>
+				</p>
+			</div>
+
+			<div class="col-md-9 vcenter" id="player">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

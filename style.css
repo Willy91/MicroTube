@@ -1,0 +1,14 @@
+div.sidebar {
+	text-align: center;
+	height: 100%;
+}
+
+.title {
+	border-bottom: 1px black solid;
+}
+
+.vcenter {
+	display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
